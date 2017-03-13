@@ -1,0 +1,111 @@
+/*reset*/
+ul,li,p,h1,h2,h3,h4,h5,body{margin:0px;padding:0px;}
+ul,li,dl,dd,dt{list-style: none;}
+body{font-size:12px;}
+a{text-decoration: none;color:#252525;}
+a:hover,.fot a:hover{color: #ee2d24;}
+a img{border:none 0;display: block;}
+/*banner*/
+.banner_index
+{
+	height:530px;
+	position: relative;
+	overflow:hidden;
+	width: 715px;
+	margin:0 auto;
+}
+.banner_index:hover .btn
+{
+		display: block;
+}
+.banner_index .btn,.banner_pro .bBtn
+{
+	position: absolute;
+	top:50%;
+	margin-top:-22.5px;
+	width:28px;
+	height:45px;
+	display: none;
+	z-index: 3;
+}
+.banner_index .btnPre,.banner_pro .bPre
+{
+	background:url(../images/o61vu_ieydoyjzhe2wim3gmiytambqmeyde_201x53.png) no-repeat 0 0;
+	left:0;
+	position: absolute;
+	opacity: 0.6;
+}
+.banner_index .btnPre:hover,.banner_pro .bPre:hover
+{
+	opacity: 1.0;
+}
+.banner_index .btnNext,.banner_pro .bNext
+{
+	background: url(../images/o61vu_ieydoyjzhe2wim3gmiytambqmeyde_201x53.png) no-repeat -48px 0;
+	right: 0;
+	position: absolute;
+	opacity: 0.6;
+}
+.banner_index .btnNext:hover,.banner_pro .bNext:hover
+{
+	opacity: 1.0;
+}
+.banner_index .banner_wrap
+{
+	position: absolute;
+	left:0px;
+	top: 0px; 
+	z-index: 2;
+}
+.banner_index .banner_wrap li
+{
+	width: 715px;
+	float: left;
+}
+.indexBanner_num
+{
+	position: absolute;
+	left:50%;
+	margin-left:-72px;
+	bottom: 10px;
+	display: block;
+
+    width: 152px;
+    height: 30px;
+	padding: 5px 10px;
+
+	text-align: center;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 1px 4px #999;
+	
+	box-sizing: border-box;
+	z-index: 2;
+} 
+.indexBanner_num a
+{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	background: url(../images/o61vu_ieydoyjzhe2wim3gmiytambqmeyde_201x53.png) no-repeat -97px -17px;
+	color:transparent;
+	margin:auto 1px;
+}
+.indexBanner_num a.on,.indexBanner_num a:active
+{
+	background: url(../images/o61vu_ieydmm3bmi2geodgmiytambqgiyde_40x40.png) no-repeat 0 0;
+	background-size: 20px 20px;
+    -webkit-animation:run 4.7s linear 0s 1;
+}
+@-webkit-keyframes run
+{
+from
+{
+  -webkit-transform:rotate(0deg);
+}
+to
+{
+   -webkit-transform:rotate(360deg);
+}
+}
