@@ -1,0 +1,3141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>蘑菇街-我的买手街</title>
+	<style type="text/css">
+
+        body, button, input, select, textarea
+        {
+            font: 12px/1.6 tahoma,arial,sans-serif;
+        }
+     a{text-decoration: none;}
+     a:hover{text-decoration: underline;}
+		* {
+/*		    margin: 0;
+		    padding: 0;
+		    box-sizing: border-box;*/
+		}
+
+    	html, body
+    	/*, .wrap*/
+    		 {height: 100%;}
+
+        body,dl,dd,p,form{margin:0;}
+        html {min-width: 1200px;}
+		  
+        /*页眉*/
+        .header
+        {
+            background: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+            height: 31px;
+            text-align: center;
+        }
+        .header-wrap
+        {
+           /* display: block;*/
+            width:1200px;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+      .header ul
+        {
+            list-style: none;
+            float: right;
+            margin:0;
+        }
+        .header li 
+        {         
+            float: left;
+           
+        }
+        .header  a
+        {
+            text-decoration:none;
+            display: inline-block;
+            font: 12px/1.6 tahoma,arial,sans-serif;
+            margin-top: 8px;
+            color: #666;
+        }
+
+         li.rigster,li.login
+        {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+   
+        li.myorder
+        {
+            display: inline-block;
+            background:url(images/upload_ie2wmzdehazwkztdgmzdambqhayde_100x400.png);
+            background-repeat: no-repeat;
+            background-position: 15px -210px;
+            margin-right: 15px;
+            vertical-align: top;
+            float: left;
+        }
+        
+       
+        li.shoppingcart
+        {
+            display: inline-block;
+            background:url(images/upload_ie2wmzdehazwkztdgmzdambqhayde_100x400.png);
+            background-repeat: no-repeat;
+            background-position: 15px -103px;
+            margin-right: 15px;
+            vertical-align: top;
+            float: left;
+        }
+       
+
+            div.empty_cart
+        { 
+            display: none;
+            position: absolute;
+            top:33px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+            width: 200px
+        }
+        .empty_cart
+        {
+           font: 12px/1.6 tahoma,arial,sans-serif;
+            text-align: center;
+            color: #999;
+           
+            padding:18px 0;
+        }
+    
+        li.shoppingcart:hover .empty_cart
+        {
+            display: inline-block;
+        }
+        li.customerserverice
+        {
+            display: inline-block;
+            background:url(images/upload_ie2wmzdehazwkztdgmzdambqhayde_100x400.png);
+            background-repeat: no-repeat;
+            background-position: 67px -144px;
+            padding-right: 10px;
+            margin-right: 15px;
+            vertical-align: top;
+            float: left;
+        }
+       
+        li.customerserverice:hover .dropdown-content1
+        {
+            display: inline-block;
+        }
+      
+        div.dropdown-content1
+        { 
+            display: none;
+            position: absolute;
+            top:33px;
+           /* top: 100%;*/
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+        .dropdown-content1 ul, .dropdown-content1 li
+          {
+            margin: 0;
+            padding:0;
+            width: 100px;
+          }
+        .dropdown-content1 a
+        {text-decoration:none;}
+        .dropdown-content1 li:hover
+        {background-color: #e4e4e4;}
+
+
+        li.myshop
+        {
+            display: inline-block;
+            background:url(images/upload_ie2wmzdehazwkztdgmzdambqhayde_100x400.png),url(images/upload_ie2wmzdehazwkztdgmzdambqhayde_100x400.png);
+            background-repeat: no-repeat;
+            background-position: 15px -250px, 88px -144px;
+              padding-right: 10px;
+           /* margin-right: 15px;*/
+            vertical-align: top;
+            float: left;
+        }
+
+        li.myshop:hover .dropdown-content1
+        {
+            display: inline-block;
+        }
+        a.display
+        {
+            float:right;
+            padding-left: 38px;
+            border-left: 1px solid #ddd;
+       }
+	   /*侧边*/
+        .aside
+        {
+            
+            width: 30px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            background-color: black;
+            z-index: 999;
+        }
+    .options
+    {
+        color: white;
+        text-align: center;
+        position: relative;
+    
+      top: 10%;
+      
+    }
+
+    .footprint, .mycart, .coupon, .wallet
+    {  
+     
+      width: 30px;
+      padding: 5px 5px 0px 5px;
+      box-sizing: border-box;
+     
+     position: relative;
+      background-origin: border-box;
+      background:black;
+      padding-top: 0;
+      z-index: 200;
+        
+    }
+      .footprint, .coupon, .wallet
+      {
+         display: inline-block;
+         position: relative;
+      }
+    
+  .footprint:hover,.mycart:hover,.coupon:hover,.wallet:hover
+   {
+    background-color: red;
+    margin-top: -1px;
+
+   }
+  .footprint:hover a,.mycart:hover a,.coupon:hover a,.wallet:hover a
+   {
+      padding-top: 1px;
+      padding-bottom: 16px;
+      border-bottom: 0;
+   }
+    .options a
+    {
+        text-decoration: none; 
+        display: inline-block;
+        box-sizing: border-box;
+        color:white;
+        font: 12px/1.6 tahoma,arial,sans-serif;
+        text-align: center;
+        width: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(221,221,221,.6);
+    }
+    .options p
+    {
+        line-height:15px; 
+        color: white;
+    }
+    .options .mycart-icon    
+    {
+         background:url(images/upload_iezdmoldgm2tmnrtgqzdambqmmyde_30x220.png) no-repeat -5px 0 ;
+        height: 30px;
+     }
+    .options .coupon-icon    
+    {
+         background:url(images/upload_iezdmoldgm2tmnrtgqzdambqmmyde_30x220.png) no-repeat -5px -30px ;
+        height: 30px;
+     }
+    .options .wallet-icon    
+    {
+         background:url(images/upload_iezdmoldgm2tmnrtgqzdambqmmyde_30x220.png) no-repeat -5px -90px ;
+        height: 30px;
+     }
+    .options .footprint-icon    
+    {
+         background:url(images/upload_iezdmoldgm2tmnrtgqzdambqmmyde_30x220.png) no-repeat -5px -60px ;
+        height: 30px;
+     }
+
+    .go2top
+   {
+    z-index: 2000;
+    display: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    right: 0;
+    position: fixed;
+    background-color: black;
+    bottom: 10px;
+   }
+     .go2top1
+   {  
+    height: 30px;
+    width: 20px;
+    background:url(images/upload_iezdmoldgm2tmnrtgqzdambqmmyde_30x220.png) no-repeat -5px -150px;
+    border-top: 1px solid rgba(221,221,221,.6);
+   
+   }
+       .options .go2top-icon    
+    {
+      width: 20px;
+      background:url(images/upload_iezdmoldgm2tmnrtgqzdambqmmyde_30x220.png) no-repeat -5px -150px
+      height: 30px;
+     }
+   .go2top:hover
+   {
+    background-color: red;
+   }
+
+
+
+        /*页脚*/
+	    .footer
+	    {   display: inline-box;
+            background:url(images/foot_ieydomrxmfswgnrymiytambqhayde_24x160.png);
+            background-repeat:repeat-x;
+            background-size: contain;
+	    	position: relative;
+             padding-bottom: 20px;
+               height:auto;
+	    }
+
+        .footer-wrap
+        {
+            display: block;
+            width:1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 30px;
+         /*  background-color: yellow;*/
+           box-sizing: border-box;
+           height:auto;
+             margin-top: 0;
+             position: relative;
+         /*  height: 200px;*/
+
+        }
+
+        .footer1
+        {
+            display: inline-block;
+           /* float: left;*/
+            width: 246px;
+        }
+       .footer1 p, .footer1 a 
+        {
+            text-decoration: none;
+            color:#999;
+            font: 12px/1.6 tahoma,arial,sans-serif;
+            line-height: 16px;
+            margin-top: 5px;
+        }
+          
+        .footer2
+        {
+            position: absolute;
+            right: 50px;
+            display: inline-block;
+            font: 12px/1.6 tahoma,arial,sans-serif;
+        }
+
+     
+        .footer2 dl
+        {
+            float: left;
+            margin-left: 121px;  
+        }
+        
+        .footer2 dd
+        {
+             margin-top: 3px; 
+        }
+        .footer2 a
+        {
+             color: #666;
+             font: 12px/1.6 tahoma,arial,sans-serif;
+             text-decoration:none;
+        }
+
+        .footer2 a:hover
+        {
+            text-decoration: underline;
+        }
+
+        .link-safe
+        {
+            padding: 0;
+        }
+
+        .link-safe a
+        {
+             float: left;
+            height: 28px;  
+            background:url(images/split.png);
+            background-repeat: no-repeat;
+           
+        }
+        a.pinganbank
+        {
+            background-position: -244px -50px;
+            width: 150px;
+            vertical-align: top;
+        }
+        a.safenet
+        {
+            background-position: -395px -50px;
+            width: 100px;
+            vertical-align: top;
+        }
+        /*友情链接*/
+        .link
+        {
+           width: 1200px;
+           height: 20px; /*很重要*/
+            border-top: 1px solid #e5e5e5;
+            margin-top: 10px;
+           padding-top: 10px;
+           padding-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+  
+        .link ul
+        {   
+            list-style-type: none;
+            margin: 0;
+            display: block;
+            padding: 0;
+            float: bottom;
+        }
+
+        .link ul li
+        {   
+            padding: 0;
+            float: left;
+            color:#4d4d4d;
+            font: 12px/1.6 tahoma,arial,sans-serif;
+        }
+
+        .link a
+        {
+            color:#4d4d4d;
+            /* margin-left: 25px;*/ 
+            text-decoration: none;    
+            padding: 10px 15px;
+        }
+        .link a:hover
+        {    
+            color: red; 
+            text-decoration: underline;
+        }
+        
+        .wrap
+        {
+            /*最小高度的定义：1. 元素拥有默认高度；2. 当内容超出元素的默认高度时，元素的高度随内容增加而增加*/
+            /*height: auto;*/
+            min-height: 100%; /*for ie7+,firefox,chrome,safari,opera*/
+            _height:100%; /*for ie6*/
+            /*width:1200px;*/
+            margin: auto;
+            /*background-color: pink;*/
+        }
+        .wrap .clearfix
+        {
+            height: 144px;
+            border-bottom: 1px solid #f46;
+            /*display: inline-block;*/
+        }
+        .clearfix .clearfix_wrap
+        {
+            width: 1200px;
+           height: 144px;
+            margin: auto;
+           /* background-color: yellow;*/
+        }
+/*        .clearfix::after 
+        {
+            content: ".";
+            display: block;
+            height: 0px;
+            font-size: 0px;
+            clear: both;
+            visibility: hidden;
+        }*/
+       .clearfix_wrap .logo 
+        { 
+            float: left;
+            height: 60px;
+            width: 227px;
+            padding-top: 40px;
+          /*  padding:30px 0px 0px 10px;*/
+            background:url(images/upload_ie4denjsgzrdqyleg4zdambqgiyde_207x51.png) no-repeat;
+           background-origin: content-box;
+          /* background-color: lightgreen;*/
+        }
+        .clearfix_wrap .code
+        { /* display: inline-block;*/
+            float: right;
+            position: relative;
+            height: 144px;
+            width: 250px;
+            background:url(images/upload_ifrdsnjugizgkn3ghezdambqmeyde_280x280.png),url(images/upload_ifrdgmrwga3gizrwg4zdambqmeyde_251x144.gif);
+            background-size: 83px 83px,251px 144px;
+            background-repeat: no-repeat;
+            background-position: 105px 56px, 0;
+            z-index: -888;
+            /*background-color: lightgreen;*/
+
+        }
+        /*全部商品 团购 快抢*/
+       .clearfix_wrap .box
+       {
+         position: relative;
+         display: inline-block;
+         float: left;
+         height: 36px;
+         width: 670px;
+         margin-top: 8px;
+        /* background-color: blue;*/
+        
+       }
+       .box .all
+       {
+             float: left;
+            display: inline-block;
+            border-radius: 10px 10px 0 0;
+           /* clear: left;*/
+            /*margin-top:8px;*/
+            margin-right: 30px;
+            box-sizing: border-box;
+            background-color: #f46;
+            width: 225px;
+            height: 36px;
+           line-height: 36px;
+           /* padding-top: 10px;*/
+            text-align: center;
+            color:white;
+            font-family: 宋体, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+       }
+
+        .box .etc
+        {
+            float: left;
+            position: relative;
+         /*   display: inline-block;   */
+           /* margin:8px 15px;*/
+            padding: 0 15px;
+            box-sizing: border-box;
+            
+            line-height: 36px;
+            text-align: center;
+            color:white;
+            font-family: 宋体, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+         /*   background-color: red;*/
+        }
+
+        .etc a
+        {
+            text-decoration: none;
+            color:black;
+            padding: 2px 15px;
+        }
+
+        .etc a:hover
+        {
+            text-decoration: underline;
+        }
+
+
+        /*搜索部件*/
+        .top_nav_search
+        {
+            float: left;
+            display: inline-block;
+            margin-left: 120px;
+            margin-top: 40px;
+           /* background-color: blue;*/
+            position: relative;
+        } 
+        .searchbox
+        {
+          width: 502px;
+          height: 35px;
+          float: left:;
+          border:1px solid black;
+          display: inline-block;
+          box-sizing: border-box;
+        }
+        .searchbox2
+        {
+          width: 502px;
+          height: 35px;
+          float: left:;
+          border:1px solid black;
+          display: inline-block;
+          box-sizing: border-box;
+          position: absolute;
+         /* left: 50%;
+          margin-left: -251px;*/
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hotword
+        {
+           padding-top: 3px;
+        }
+        .hotword a
+        {
+            text-decoration: none;
+            padding-right: 16px;
+            color: #999;
+        }
+        /*搜索按钮*/
+        .searchbox .button
+        {
+           display: inline-block;
+            width: 70px;
+            height: 33px;
+            background:url(images/upload_ie2wmzdehazwkztdgmzdambqhayde_100x400.png) no-repeat
+                25px -55px;
+            background-color:black;
+        }
+
+        .searchbox .searchitem
+        {
+          width: 70px;
+          height: 33px;
+          line-height: 33px;
+          padding-left: 10px;
+          display: inline-block;
+          box-sizing: border-box;
+          background:url(images/upload_ie2wmzdehazwkztdgmzdambqhayde_100x400.png) no-repeat 50px -16px;
+          background-color: white;
+          float: left;
+         
+        }
+        
+        .searchitem .dropdown-content
+        {
+            display: none;
+            margin-left: -48px;
+            margin-top: 34px;
+            position: absolute;
+            text-align: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            z-index: 200;
+        }
+
+
+        .searchitem:hover .dropdown-content
+        {
+            display: inline-block;
+        }
+
+        .dropdown-content ul, .dropdown-content li
+        {
+            margin: 0;
+            padding:0;
+            width: 70px;
+        }
+        .dropdown-content li:hover
+        {background-color: #e4e4e4;}
+
+        input.input_text
+        {
+           height:33px;
+           width:360px;
+           border:none;
+           outline:medium;
+           float:left;
+           padding: 6px 10px 6px 6px;
+           box-sizing: border-box;
+        }
+         
+        .wrap .primary_wrap
+        {
+            width: 1200px;
+            height: 550px;
+            margin:0 auto;
+            clear: both;
+        }
+       
+       .wrap .primary_wrap ul.primary_nav_list
+       {   
+            list-style-type: none;
+              box-sizing: border-box;
+             padding-left: 0;
+             margin-top: 0;
+             float: left;
+             width: 225px;
+             height: 551px;
+             border: 1px solid #f46;
+             display: inline-block;
+             position: relative;
+             top: -2.5px;
+       }
+        .wrap .primary_wrap li.primary_nav_li
+        {
+            height: 39px;
+            float: top;
+            box-sizing: border-box;
+        }
+        .wrap .primary_wrap li.primary_nav_li .nav_wrap
+      
+       {
+         
+    
+          box-sizing: border-box;
+           margin: 0 10px;  
+           border-top: 1px dashed #ddd;
+           padding: 9px 0 10px 10px;
+
+       }
+       .primary_wrap .primary_nav_li .nav_line_right
+       {
+            display: none;
+            position: relative;
+            box-sizing: border-box;
+            border-top: 1px solid #cfcfcf;
+            border-right: 1px solid white;
+            border-bottom: 1px solid #cfcfcf;
+            float: top;
+            z-index: 22;
+            left: 0;
+            width: 224px;
+            height: 40px;
+            top: -42px;
+      }
+       .primary_wrap .primary_nav_li:hover
+       {    
+            margin-top: 1px;
+       }
+     .primary_wrap .primary_nav_li .nav_more
+       {
+            display: none;
+           box-sizing: border-box;
+            position: relative;
+              left: 223px;
+             width: 290px;
+             height: 550px;
+         border:1px solid #ddd;
+           z-index: 11;
+             background-color: white;
+       }
+       .nav_more .nav_more_wrap
+       {
+            padding: 14px 20px 20px 20px;
+       }
+       .nav_more .nav_more_wrap_pic
+       {
+            padding: 14px 20px 0px 20px;
+       }
+       .nav_more .nav_more_wrap dd
+       {         
+    margin: 0px 0px 0 -20px;
+    display: inline-block;
+
+       }
+        .nav_more .nav_more_wrap dd a
+       {
+            display: inline-block;
+            height: 12px;
+            line-height: 12px;
+         font-family: "宋体",sans-serif;
+    font-size: 12px;
+            color: #666;
+            margin-top: 12px;
+            margin-left: 20px;
+            margin-right: 0;
+           float: left;
+            box-sizing: border-box;
+       }
+       .nav_more_wrap a.keyword
+       {
+            line-height: 14px;
+            color: rgb(51, 51, 51);
+            font-family: 宋体, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            margin-left: 0;
+            display: inline-block;
+            clear: both;
+       }
+          .nav_more .nav_more_wrap dd a.hot
+         { color:#f46;}
+       
+       .primary_nav_li:hover .nav_more
+       { display: inline-block; }
+             .primary_nav_li:hover .nav_line_right
+       { display: inline-block; }
+        .nav_wrap ins
+        {
+            height: 14px;
+            border-left: 1px solid #d8d8d8;
+            width: 3px;
+            margin-right: 5px;
+        }
+ 
+        .nav_wrap a
+        {
+           
+            color: rgb(102, 102, 102);
+           
+            padding-right: 3px;
+        }
+        .nav_wrap a.keyword
+        {
+            
+            font-family: 宋体, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 0;
+            padding-right: 10px;
+            color:#333;
+
+        }
+        
+
+        .nav_wrap a.hot
+        {
+            color:#f46;
+        }
+        
+        /*图片集和销售列表*/
+       .wrap .primary_wrap .primary_main
+       {
+             
+            
+             float: left;
+             width: 975px;
+             height: 530px;
+           box-sizing: border-box;
+             margin-top: 20px;
+           /*  background-color: pink;*/
+
+       }
+
+        .primary_main ul li
+        {   
+            padding: 0;
+            float: left;
+        }
+       .primary_main ul.sale_list
+       {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 0;
+            float: right;
+            display: inline-block;
+            height:530px; 
+            width:218px;
+            /*background-color: red;*/
+            border:1px solid #ddd;
+            box-sizing: border-box;
+       }
+
+       .primary_main li.sale_li
+       {
+           margin-left: 20px;
+           margin-top: 19px;
+           padding-bottom: 19px;
+           box-sizing: border-box;
+       }
+
+       .primary_main .mslide_banners
+       {
+            margin-top: 0;
+            float: left;
+            display: inline-block;
+            width: 715px;
+            height: 530px;
+            margin-left: 20px;
+            /*background-color: red;*/
+       }
+
+       /*图片轮播*/
+      #owl-demo
+      {
+        position:relative;
+        width:715px;
+        height:530px;
+        margin:0 auto 0 auto;
+      }
+      #owl-demo .item
+      { 
+        position:relative;
+        display:block;
+      }
+      #owl-demo img
+      {
+        display:block;
+        width:715px;
+        height:530px;
+      }
+
+      .owl-pagination
+      {
+        position:absolute; /*绝对定位*/
+        left: 50%;  /*居中，以左上角为原点*/
+        margin-left: -76px; /*向左移动1/2*width*/
+
+
+        bottom:10px;
+        width: 152px;
+        height: 30px;
+        text-align:center;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 1px 4px #999;
+        padding: 5px 10px;
+        box-sizing: border-box;
+          cursor: default;
+      }
+
+      .owl-page{
+        display:inline-block;
+        width:20px;
+        height:20px;
+        margin:0 1px;
+        padding: 0;
+        background-image:url(images/o61vu_ieydoyjzhe2wim3gmiytambqmeyde_201x53.png);
+        background-position: -97px -17px;
+        *display:inline;
+        *zoom:1;
+      }
+      .owl-pagination .active
+      {
+          background: url(images/o61vu_ieydmm3bmi2geodgmiytambqgiyde_40x40.png);
+          background-size: 20px 20px;
+          transform: rotate(360deg);
+          -webkit-animation:run 4.7s linear 0s 1;
+      }
+
+      .owl-pagination .active:hover
+      {
+         -webkit-animation-play-state:paused;
+      }
+
+      @-webkit-keyframes run
+      {
+        from
+        {
+          -webkit-transform:rotate(0deg);
+        }
+        to
+        {
+           -webkit-transform:rotate(360deg);
+        }
+      }
+      .owl-buttons
+      {
+        display:none;
+      }
+
+      /*前一页后一页按钮*/
+      .owl-buttons div
+      {
+        position:absolute;
+        top:50%;
+        width:28px;
+        height:45px;
+        margin-top:-40px;
+        text-indent:-9999px;
+      }
+      .owl-prev
+      {
+        left:0;
+        background-image:url(images/o61vu_ieydoyjzhe2wim3gmiytambqmeyde_201x53.png);
+
+        opacity: 0.6;
+      }
+      .owl-next
+      {
+        right:0;
+        background-image:url(images/o61vu_ieydoyjzhe2wim3gmiytambqmeyde_201x53.png);
+        background-position: -48px 0px;
+        opacity: 0.6;
+      }
+      .owl-prev:hover
+      {
+        opacity: 1.0;
+      }
+      .owl-next:hover
+      {
+        opacity: 1.0;
+      }
+      .wrap .special_con
+      {
+        /*display: inline-block;*/
+        width: 1200px;
+        height: 300px;
+
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        
+        border-top:1px solid black;
+      }
+
+      .wrap .special_con .sp_col1
+      {
+        width: 225px;
+        height: 300px;
+        border-bottom: 5px solid #f46;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        margin-right: 20px;
+        box-sizing: border-box;
+        float: left;
+        position: relative;
+      }
+
+      .wrap .special_con .sp_col23
+      {
+        width: 575px;
+        height: 300px;
+        float:left;
+        margin-right: 20px;
+      }
+
+      .wrap .special_con .sp_col4
+      {
+        width: 360px;
+        height: 300px;
+        float: right;
+      }
+
+      .wrap .special_con img
+      {
+        float: left;
+      }
+      
+      .wrap .special_con .sp_col1 img
+      {
+        width: 223px;
+        height: 245px;
+        z-index: -100;
+        margin-top: 50px;
+        float: left;
+        
+      }
+      .wrap .special_con .sp_col1 .title
+      {
+        background:url(images/upload_ieyweyrqgqygmolegmzdambqmeyde_95x24.png) no-repeat;
+        position: absolute;
+        top: 24px;
+        left: 10px;
+        width: 100px;
+        height: 24px;
+        text-align: center;
+      }
+      .wrap .special_con .sp_col1 .time_con
+      {
+        position: absolute;
+        top: 24px;
+        right: 0;
+        width: 110px;
+        height: 24px;
+      }
+      .wrap .special_con .sp_col1 .time_con span 
+      {
+          display: block;
+          float: left;
+          width: 12px;
+          text-align: center;
+          font-size: 16px;
+          color: #f46;
+          vertical-align: top;
+      }
+     .wrap .special_con .sp_col1 .time_con .timer-hh,
+     .wrap .special_con .sp_col1 .time_con .timer-mm,
+     .wrap .special_con .sp_col1 .time_con .timer-ss
+      {
+        padding: 0;
+        vertical-align: top;
+        height: 24px;
+        line-height: 24px;
+        width: 24px;
+        text-align: center;
+        font-size: 14px;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        border-radius: 2px;
+        background-color: #f46;
+        color: #fff;
+      }
+
+      .wrap .special_con .sp_col1 span.price_con
+      {
+        width: 75px;
+        height: 75px;
+        position: absolute;
+        top: 204px;
+        left: 133px;
+        background:url(images/upload_ieywkytdmq2tkytdgmzdambqmeyde_468x512.png) no-repeat 0 -310px;
+        z-index: 200;
+        color: white;
+        text-align: center;
+        padding-top: 15px;
+        float: left;
+        display: inline-block;
+      }
+      .main_content
+        {
+          width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+          padding-bottom: 80px;
+          height: 100%;
+          
+        }
+        .main_content ul.theme
+        {
+          list-style: none;
+          /*没有间隙*/
+          padding:0;
+          margin: 0;
+        
+        }
+         .main_content li.theme_con
+       /* .main_content li.style1, .main_content li.style2*/
+        {
+          margin-top: 80px;
+          width: 100%;
+         display: block;
+        box-sizing: border-box;
+        }
+
+
+        .main_content li .style1_con,.main_content li .style2_con
+        {
+          height: 500px;
+        }
+        .main_content li.theme_con .col1
+        {
+          width: 225px;
+          height: 500px;
+          border:1px solid #ddd;
+          float:left;
+          box-sizing: border-box;
+        }
+
+        .main_content li.theme_con .col1 .img_con
+        {
+          background:#fbfbfb;
+          text-align: center;
+          display: inline-block;
+          width: 223px;
+          height: 400px;
+          float: left;
+          padding-top: 15px;
+          box-sizing: border-box;
+        }
+        
+        .main_content li.theme_con .col1 .img_con a
+        {
+          margin-top: 15px;
+          display: inline-block;
+        }
+       .col1 ul.text_con
+        {
+          display: inline-block;
+          height: 90px;
+          width: 210px;
+          box-sizing: border-box;
+          margin: 0 6.5px;
+          padding: 0;
+          list-style: none;
+         
+        }
+        .col1 ul.text_con li
+        {
+          margin: 0;
+          float: left;
+          margin-top: 10px;
+          padding: 0;
+          width: 70px;
+        
+        }
+         .col1 ul.text_con li a
+       {
+            display: inline-block;
+            height: 18px;
+            line-height: 18px;
+            font-family: "宋体",sans-serif;
+            font-size: 12px;
+            color: rgb(51, 51, 51);
+            margin-left: 10px;
+            margin-right: 0;
+            float: left;
+            box-sizing: border-box;
+            max-width: 60px;
+            border:1px solid white;
+            overflow: hidden;/*注意不要写在最后了*/ 
+            white-space: nowrap; 
+            text-overflow: ellipsis; 
+       }
+ .col1 ul.text_con li a:hover
+ {
+   border:1px solid #ddd;
+   text-decoration: none;
+ }
+
+        .main_content li.theme_con .col2
+        {
+          float: left;
+          height: 100%;
+          width: 975px;
+          box-sizing: border-box;
+        }
+       .main_content li.theme_con .col2 ul
+       {list-style-type: none;
+        float: left;
+        margin-left: 0;
+        padding-left: 0;
+        width: 975px;
+        height: 330px
+        padding:0;
+       }
+         .col2 li.img_cont1
+         {
+          padding: 0;
+          float: left;
+          display: inline-block;
+          margin-left: 20px;
+          width: 305px;
+          height: 330px;
+         }
+      .col2 li.img_cont2
+        {
+          padding: 0;
+          height: 150px;
+          width: 305px;
+          float: left;
+          margin:20px 0 0 20px;
+        }
+         .col2 li.img_cont2 img
+         {
+          float: left;
+         }
+         .col2 li.img_cont2 .desc
+        {
+          float: left;
+          height: 24px;
+          line-height: 24px;
+          margin-top: 50px;
+          padding-left: 10px;
+        }
+
+        .col2 li.img_cont2 .desc p
+        {
+          color:#333;
+          font-family: 宋体, sans-serif;
+          font-size: 14px;
+        }
+        .main_content li.theme_con .col1 a.pic1
+        {
+          width: 225px;
+          height: 256px;
+           border-bottom:1px solid #ddd;
+           margin: -1px 0 0 -1px;
+           padding: 21px 21.5px;
+          float: left;
+          display: inline-block;
+          box-sizing: border-box;
+
+
+        }
+        .main_content li.theme_con .col1 a.pic2
+        {
+          width: 112.5px;
+          height: 62px;
+          float: left;
+          margin: -1px 0 0 -1px;
+          padding-top: 1px;
+          display: inline-block;
+            border-left:1px solid #ddd;
+            border-bottom:1px solid #ddd;
+            box-sizing: border-box;
+        }
+          .main_content li.theme_con .col1 a.pic2 .grey
+          {
+            width: 111px;
+            height: 60px;
+            background-color: #ccc;
+            opacity:0.15;
+            float: left;
+            margin-top: -65px;
+            display: none;
+          }
+        .main_content li.theme_con .col1 a.pic2:hover .grey
+        {
+              display: inline-block;
+        }
+        .main_content li.theme_con .col2 .long_pic
+        {
+          float: left;
+          width: 305px;
+          height: 500px;
+          margin-left: 20px;
+           box-sizing: border-box;
+           display: inline-block;
+           z-index: 500;
+          
+        }
+        .main_content li.theme_con .col2 .col_pic
+        {
+          float: left;
+          width: 650px;
+          height: 500px;
+          box-sizing: border-box;
+          background-color: #ddd;
+          background-origin: content-box;
+        }
+         .main_content li.theme_con .col2 .col_pic li.pic_item
+        {
+          width: 215.55px;
+          height: 248.5px;
+          display: inline-block;
+          margin-left: 1px;
+          margin-top: 1px;
+          float: left;
+    
+          background-color: white;
+        }
+         .main_content li.theme_con .col2 .col_pic li.pic_item img
+        {
+          width: 175px 
+          height:170px;
+          margin: 20px 14px;
+          display: inline-block;
+          float: left;
+        }
+         .main_content li.theme_con .col2 .col_pic li.pic_item span
+        {
+          text-align: center;
+          color: #333;
+          width: 100%;
+          height: 24px;
+          font-style: "宋体",sans-serif;
+          font-size: 12px;
+          display: inline-block;
+          float: left;
+        }
+        .main_content li.theme_con .col2 .col_pic li.pic_item span:hover
+        {
+          text-decoration: underline;
+        }
+        .main_content .title
+        {
+          margin: 15px auto;
+          height: 32px;
+        }
+        .main_content .title .bg_con
+        {
+          display: inline-block;
+          width: 492px;
+          height: 12px;
+          margin: 10px 0 0 0 ;
+          box-sizing: border-box;
+          padding-left: 12px;
+          padding-right: 12px;
+          background-image: url(images/upload_ie3wknjwmfrtknrwgqzdambqgayde_12x60.png),url(images/upload_ie3wknjwmfrtknrwgqzdambqgayde_12x60.png),url(images/upload_ie3wknjwmfrtknrwgqzdambqgayde_12x60.png);
+          background-position: 0 0,480px -24px,12px -12px;
+          background-repeat: no-repeat,no-repeat,repeat;
+          background-clip: padding-box,padding-box,content-box;
+          float: left;
+        }
+        .main_content .title .ti_con
+        {
+
+           display: inline-block;
+           height: 32px;
+           width: 216px;
+           padding: 4px 15px 0 15px;
+           box-sizing: border-box;
+          
+           float: left;
+        }
+      .search2
+        {
+          display: none;
+          background-color: rgba(0,0,0,0.7);
+          height: 50px;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          z-index: 500;
+          min-width: 1200px;
+        }
+	</style>
+  <!-- 图片轮播 -->
+      <link rel="stylesheet" href="css/lrtk.css" type="text/css">
+
+      <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript" src="js/common.js"></script>
+
+
+<!-- 倒计时 -->
+      <script type="text/javascript">
+
+    var intDiff = parseInt(3800);//倒计时总秒数量
+
+   function timer(intDiff){
+    window.setInterval(function(){
+    var 
+     day=0,
+      hour=0,
+      minute=0,
+      second=0;//时间默认值    
+    if(intDiff > 0){
+      day = Math.floor(intDiff / (60 * 60 * 24));
+      hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+      minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+      second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+    }
+    if (hour <= 9) hour = '0' + hour;
+    if (minute <= 9) minute = '0' + minute;
+    if (second <= 9) second = '0' + second;
+
+    $('.timer-hh').html('<s id="h"></s>'+hour);
+    $('.timer-mm').html('<s></s>'+minute);
+    $('.timer-ss').html('<s></s>'+second);
+    intDiff--;
+    }, 1000);
+  } 
+
+  $(function(){
+    timer(intDiff);
+  }); 
+
+<!-- 侧边动画 -->
+
+$(document).ready(function(){
+      if($(window).width()<1260) {
+           
+             $(".mycart").stop(true,false).animate({right:'30px'});
+              $(".aside").stop(true,false).animate({right:'-30px'});
+          }
+      else { 
+            $(".mycart").stop(true,false).animate({right:'0px'});
+            $(".aside").stop(true,false).animate({right:'0px'});
+              }
+      $(".mycart").mouseenter(function(){
+        if($(window).width()<1260) {
+           $(".mycart").stop(true,false).animate({right:'0px'});
+           $(".aside").stop(true,false).animate({right:'0px'});
+        }
+      });
+
+      $(".aside").mouseleave(function(){
+        if($(window).width()<1260) {
+            $(".mycart").stop(true,false).animate({right:'30px'});
+           $(".aside").stop(true,false).animate({right:'-30px'});
+        }        
+      });
+
+    $(window).resize(function(){
+          if($(window).width()<1260) {
+            
+            // $(".mycart").css("background-color","pink");
+               $(".mycart").stop(true,false).animate({right:'30px'});
+              $(".aside").stop(true,false).animate({right:'-30px'});
+          }
+          else { 
+             $(".mycart").stop(true,false).animate({right:'0px'});
+            $(".aside").stop(true,false).animate({right:'0px'});
+              }
+
+          $(".mycart").mouseenter(function(){
+            if($(window).width()<1260) {
+                $(".mycart").stop(true,false).animate({right:'0px'});
+               $(".aside").stop(true,false).animate({right:'0px'});
+            }
+
+          });
+
+          $(".aside").mouseleave(function(){
+            if($(window).width()<1260) {
+                 $(".mycart").stop(true,false).animate({right:'30px'});
+               $(".aside").stop(true,false).animate({right:'-30px'});
+            }        
+          });
+    });
+
+
+      //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失  
+        $(window).scroll(function(){  
+                if ($(window).scrollTop()>100){  
+                    $(".go2top").fadeIn(100);  
+                     
+                }  
+                else  
+                {  
+                    $(".go2top").fadeOut(100);  
+                }  
+            });  
+
+        //当点击跳转链接后，回到页面顶部位置  
+        $(".go2top").click(function(){
+           $('body,html').animate({scrollTop:0},0);  
+                return false;  
+        });
+
+
+         //当滚动条的位置处于距顶部730像素以下时，跳转链接出现，否则消失  
+        $(window).scroll(function(){  
+                if ($(window).scrollTop()>730){  
+                    $(".search2").fadeIn(10);    
+                }  
+                 else  
+                {  
+                    $(".search2").fadeOut(10);  
+                }  
+            });  
+});
+</script>   
+
+</head>
+<body>
+    <!-- 搜索栏 -->
+    <div class="search2">
+      <img src="images/upload_blackifrwinlcgfrdcyteg4zdambqhayde_152x38.png" style="position:absolute;padding:6px 100px 0 150px;">
+                <div class="top_nav_search" style="position:absolute;left:50%;margin-left:-251px;margin-top:8px;">
+                    <div class="searchbox">
+                        
+                        <div class="searchitem">搜商品
+                             <div class="dropdown-content">
+                                 <ul style="list-style:none">
+                                     <li>商品</li>
+                                     <li>店铺</li>
+                                 </ul>
+                             </div>
+
+                        </div>
+                        <input type="text" name="" class="input_text">
+                        <div class="button"></div> 
+                    </div>
+                </div>
+    </div>
+    <!-- 右边区域 -->
+    <div class="aside">
+        <div class="options">   
+         
+            <div class="mycart">
+              
+                    <a href="" target="_blank">
+                        <div class="mycart-icon"></div>
+                        <p>购物车</p>
+                    </a>
+      
+            </div>
+
+            <div class="coupon">
+                
+                <a href="" target="_blank">
+                    <div class="coupon-icon"></div>
+                    <p >优惠券</p>
+                </a>
+               
+            </div>  
+            <div class="wallet">
+           
+                <a href="" target="_blank">
+                    <div class="wallet-icon"></div>
+                    <p >钱包</p>
+                </a>
+             
+            </div>  
+            <div class="footprint">
+          
+                <a href="" target="_blank">
+                    <div class="footprint-icon"></div>
+                    <p >足迹</p>
+                </a>
+              
+            </div>                                    
+           
+      
+   </div>
+    </div>
+      <div class="go2top">
+          <div class="go2top1">  
+          </div> 
+      </div>
+   
+    <!-- 页眉 -->
+    <div class="header">
+        <div class="header-wrap">
+            <ul>
+                <li class="rigster" >
+                <a href="" target="_blank">
+                注册
+                </a>
+                </li>
+                <li class="login" ><a href="" target="_blank">登陆</a></li>
+                <li class="myorder"><a href=""  target="_blank" class="display" >我的订单</a>
+                                   
+                </li>
+            <li class="shoppingcart"><a href="" class="display"  target="_blank" >购物车</a>
+                  <div class="empty_cart">购物车里没有商品！</div>
+            </li>
+                <li class="customerserverice"><a href="" target="_blank"  style="   float:right;
+        padding-left: 15px;
+       border-left: 1px solid #ddd;">客户服务</a>
+                      <div class="dropdown-content1">
+                         <ul>
+                            <li></li>
+                             <li><a href="">消费者服务</a></li>
+                             <li><a href="">商家服务</a></li>
+                             <li><a href="">规则中心</a></li>
+                         </ul>
+                      </div>
+       </li>
+                <li class="myshop"><a href="" class="display" target="_blank" >我的小店</a>
+                         <div class="dropdown-content1">
+                         <ul>
+                            <li></li>
+                             <li><a href="">管理后台</a></li>
+                             <li><a href="">商家设区</a></li>
+                             <li><a href="">商家培训</a></li>
+                              <li><a href="">市场入驻</a></li>
+                         </ul>
+                      </div>
+
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+   
+    <div class="wrap">
+        <!-- 1.主页面之搜索框 -->
+        <div class="clearfix">
+            <div class="clearfix_wrap">
+                <div class="logo"><a href=""></a></div>
+                <div class="code"></div>
+               
+                <div class="top_nav_search">
+                    <div class="searchbox">
+                        
+                        <div class="searchitem">搜商品
+                             <div class="dropdown-content">
+                                 <ul style="list-style:none">
+                                     <li>商品</li>
+                                     <li>店铺</li>
+                                 </ul>
+                             </div>
+
+                        </div>
+                        <input type="text" name="" class="input_text">
+                        <div class="button"></div> 
+                    </div>
+
+                    <div class="hotword">
+                        <a href="">韩版连衣裙</a>
+                        <a href="">小白鞋</a>
+                        <a href="">潮T</a>
+                        <a href="">运动套装</a>
+                        <a href="">男T恤</a>
+                        <a href="">夏季小包</a>
+                        <a href="">短裤</a>
+                        <a href="">衬衫</a>
+                        <a href="">省心套装</a>
+                    </div>
+                </div>
+                 <div class="box">
+                    <div class="all">所有商品</div>
+                    <div class="etc"><a href="">团购</a></div>
+                    <div class="etc"><a href="">快抢</a></div>
+                 </div>
+            </div>
+        </div>
+        <!-- 2.主页面之导航栏 -->
+        <div class="primary_wrap">
+            <!-- 2.1左侧导航栏 -->
+            <ul class="primary_nav_list">
+                <!-- 上衣 -->
+                <li class="primary_nav_li" >
+                    <div class="nav_wrap" style="border-color:#f46;">
+                        <a href="" class="keyword">上衣</a>
+                        <a href="" class="hot">秋上新</a>
+                        <ins></ins>
+                        <a href="">衬衫</a>
+                        <ins></ins>
+                        <a href="">针织衫</a>
+                    </div>
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -87px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">初秋热卖</a></dt>
+                            <dd>
+                            <a href="" class="hot">卫衣</a>
+                            <a href="">时尚套装</a>
+                            <a href="">棒球外套</a>
+                            <a href="" class="hot">风衣</a>
+                            <a href="">牛仔外套</a>
+                            <a href="">皮衣</a>
+                            <a href="">薄外套</a>
+                            <a href="">开衫</a>
+                            <a href="">马甲</a>
+                            <a href="">毛呢外套</a>
+                            <a href="">毛衣</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">换季热卖</a> </dt>
+                          <dd>
+                            <a href="">T恤</a>
+                            <a href="">雪纺衫</a>
+                            <a href="">蕾丝衫</a>
+                            <a href="" class="hot">衬衫</a>
+                            <a href="">背心吊带</a>
+                            <a href="">娃娃衫</a>
+                            <a href="">针织薄衫</a>
+                            <a href="">情侣装</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">潮流新品</a></dt>
+                            <dd>
+                            <a href="">短款上衣</a>
+                            <a href="">喇叭袖</a>
+                            <a href="" class="hot">纯白衬衫</a>
+                            <a href="">纯色T恤</a>
+                            <a href="" class="hot">一字领</a>
+                            <a href="">时尚挂脖</a>
+                            <a href="">绑带衬衫</a>
+                            <a href="">甜美荷叶边</a>
+                            <a href="">前短后长</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/p2-160907-upload_39361h10ghel4cb2j6gf546247475_250x130.jpg"></a>
+                            </dl>
+                        </div>
+                </li>
+                <!-- 裙子 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">裙子</a>
+                        <a href="" class="hot">连衣裙</a>
+                        <ins></ins>
+                        <a href="">半身裙</a>
+                        <ins></ins>
+                        <a href="" class="hot">针织裙</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -126px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">初秋上新</a></dt>
+                            <dd>
+                            <a href="">中袖连衣裙</a>
+                            <a href="">卫衣裙</a>
+                            <a href="" class="hot">衬衫裙</a>
+                            <a href="">百褶裙</a>
+                            <a href="">背带裙</a>
+                            <a href="">牛仔裙</a>
+                            <a href="">长袖连衣裙</a>
+                            <a href="">复古连衣裙</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">换季热销</a> </dt>
+                          <dd>
+                            <a href="">韩范美裙</a>
+                            <a href="">雪纺裙</a>
+                            <a href="">T恤裙</a>
+                            <a href="" class="hot">裙子套装</a>
+                            <a href="">包臀裙</a>
+                            <a href="">长裙</a>
+                            <a href="">背心裙</a>
+                            <a href="">牛仔半身裙</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">潮流新品</a></dt>
+                            <dd>
+                            <a href="">小黑裙</a>
+                            <a href="" class="hot">吊带裙</a>
+                            <a href="">荷叶边美裙</a>
+                            <a href="">小白裙</a>
+                            <a href="">碎花裙</a>
+                            <a href="">不规则美裙</a>
+                            <a href="" class="hot">一字领美裙</a>
+                            <a href="">开叉裙</a>
+                            <a href="">蕾丝裙</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_6413ja4gd12h89jadfg35glb28jc2_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>
+                <!-- 裤子 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">裤子</a>
+                        <a href="" class="hot">牛仔裤</a>
+                        <ins></ins>
+                        <a href="">打底裤</a>
+                        <ins></ins>
+                        <a href="">阔腿裤</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -165px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">当季热卖</a></dt>
+                            <dd>
+                            <a href="">衣裤套装</a>
+                            <a href="" class="hot">连体裤</a>
+                            <a href="">牛仔短裤</a>
+                            <a href="">休闲裤</a>
+                            <a href="">高腰裤</a>
+                            <a href="">小脚裤</a>
+                            <a href="">背带裤</a>
+                            <a href="">哈伦裤</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">潮流新品</a> </dt>
+                          <dd>
+                            <a href="">喇叭裤</a>
+                            <a href="" class="hot">破洞牛仔</a>
+                            <a href="">磨边牛仔</a>
+                            <a href="" class="hot">雪纺裤</a>
+                            <a href="">裙裤</a>
+                            <a href="">五分裤</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">经典必备</a></dt>
+                            <dd>
+                            <a href="" class="hot">九分裤</a>
+                            <a href="">七分裤</a>
+                            <a href="">短裤</a>
+                            <a href="">西装裤</a>
+                            <a href="">直筒裤</a>
+                            <a href="">灯笼裤</a>
+                            <a href="">棉麻裤</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_46f2j7259c6g9kab9di2a72l3329g_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>
+                <!-- 内衣 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">内衣</a>
+                        <a href="" class="hot">热销榜</a>
+                        <ins></ins>
+                        <a href="">睡衣套装</a>
+                        <ins></ins>
+                        <a href="">内裤</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -204px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">内衣</a></dt>
+                            <dd>
+                            <a href="">内衣套装</a>
+                            <a href="" class="hot">调整型内衣</a>
+                            <a href="">文胸</a>
+                            <a href="">内裤</a>
+                            <a href="">无痕内衣</a>
+                            <a href="">性感内衣</a>
+                            <a href="">运动内衣</a>
+                            <a href="">抹胸</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">家居睡衣</a> </dt>
+                          <dd>
+                            <a href="" class="hot">睡衣套装</a>
+                            <a href="">家居服</a>
+                            <a href="">睡裙</a>
+                            <a href="">甜美家居服</a>
+                            <a href="">情侣睡衣</a>
+                            <a href="">睡袍</a>
+                            <a href="">性感睡衣</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">袜子</a></dt>
+                            <dd>
+                            <a href="">短袜</a>
+                            <a href="">瘦腿袜</a>
+                            <a href="" class="hot">船袜</a>
+                            <a href="">丝袜</a>
+                            <a href="">堆堆袜</a>
+                            <a href="">过膝袜</a>
+                            <a href="">连裤袜</a>
+                            <a href="">打底袜</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ie4wkmrsmm4tcmbxg4zdambqgqyde_250x130.png"></a>
+            
+                            </dl>
+                        </div>
+                </li>
+                <!-- 鞋子 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">鞋子</a>
+                        <a href="" class="hot">运动鞋</a>
+                        <ins></ins>
+                        <a href="">单鞋</a>
+                        <ins></ins>
+                        <a href="" class="hot">秋上新</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -243px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">人气销售</a></dt>
+                            <dd>
+                            <a href="" class="hot">单鞋</a>
+                            <a href="" >凉鞋</a>
+                            <a href="">运动鞋</a>
+                            <a href="">帆布鞋</a>
+                            <a href="" class="hot">小白鞋</a>
+                            <a href="">厚底鞋</a>
+                            <a href="">短靴</a>
+                            <a href="">一脚蹬</a>
+                            <a href="" class="hot">高跟鞋</a>
+                            <a href="">绑带美鞋</a>
+                            <a href="">休闲鞋</a>
+                            <a href="">乐福鞋</a>
+                            <a href="">牛津鞋</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">热门推荐</a> </dt>
+                          <dd>
+                            <a href="" class="hot">当季热卖</a>
+                            <a href="" class="hot">玛丽珍鞋</a>
+                            <a href="">高帮鞋</a>
+                            <a href="">中跟单鞋</a>
+                            <a href="">坡跟鞋</a>
+                            <a href="" class="hot">文艺单鞋</a>
+                            <a href="">平底靴</a>
+                            <a href="">甜美高跟</a>
+                            <a href="">厚底帆布</a>
+                            <a href="">懒人鞋</a>
+                            <a href="">松糕鞋</a>
+                            <a href="">圆头鞋</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">经典直击</a></dt>
+                            <dd>
+                            <a href="">明星同款</a>
+                            <a href="">韩版运动</a>
+                            <a href="" class="hot">韩范</a>
+                            <a href="">情侣款</a>
+                            <a href="">学生党</a>
+                            <a href="">复古擦色</a>
+                            <a href="">欧美范</a>
+                            <a href="">学院休闲</a>
+                            <a href="">舒适平底</a>
+                            <a href="">板鞋</a>
+                            <a href="">流苏</a>
+                            <a href="">套脚</a>
+                            <a href="">拉链款</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_4ifi9g25cj6131kf4jgk3k5k7dh92_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>        
+                <!-- 男友 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">男友</a>
+                        <a href="">九分裤</a>
+                        <ins></ins>
+                        <a href="" class="hot">早秋新品</a>
+                        <ins></ins>
+                        <a href="" class="hot">T恤</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -282px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">秋款上新</a></dt>
+                            <dd>
+                            <a href="" class="hot">新款衬衫</a>
+                            <a href="" >T恤</a>
+                            <a href="" class="hot">休闲鞋</a>
+                            <a href="">牛仔裤</a>
+                            <a href="">时尚套装</a>
+                            <a href="" class="hot">九分裤</a>
+                            <a href="">帆布鞋</a>
+                            <a href="" class="hot">薄款卫衣</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">全场清仓</a> </dt>
+                          <dd>
+                            <a href="" class="hot">T恤</a>
+                            <a href="">短裤</a>
+                            <a href="">背心</a>
+                            <a href="">POLO衫</a>
+                            <a href="">防晒衣</a>
+                            <a href="">牛仔裤</a>
+                            <a href="" class="hot">休闲裤</a>
+                            <a href="">休闲鞋</a>
+                            <a href="" class="hot">男士内衣</a>
+                            <a href="">帆布鞋/a>
+                            <a href="">人字拖</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">潮流元素</a></dt>
+                            <dd>
+                            <a href="" class="hot">印花刺绣</a>
+                            <a href="">单宁风</a>
+                            <a href="">一脚蹬</a>
+                            <a href="" class="hot">情侣装</a>
+                            <a href="">棉麻风</a>
+                            <a href="">工装裤</a>
+                            <a href="" class="hot">条纹装</a>
+                            <a href="">麻底鞋</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ie4dcmrvmrswcmzthazdambqgiyde_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>     
+                <!-- 包包 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">包包</a>
+                        <a href="" class="hot">秋上新</a>
+                        <ins></ins>
+                        <a href="" class="hot">女包</a>
+                        <ins></ins>
+                        <a href="">男包</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -321px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">热门</a></dt>
+                            <dd>
+                            <a href="">新品</a>
+                            <a href="" class="hot" >双肩包</a>
+                            <a href="" class="hot">斜挎包</a>
+                            <a href="">手提包</a>
+                            <a href="">单肩包</a>
+                            <a href="">百搭大包</a>
+                            <a href="" class="hot">迷你小包</a>
+                            <a href="" class="hot">旅行箱包</a>
+                            <a href="">女士钱包</a>
+                            <a href="">男士钱包</a>
+                            <a href="" class="hot">香风链条</a>
+                            <a href="">手拿包</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">款式</a> </dt>
+                          <dd>
+                            <a href="" class="hot">双肩包</a>
+                            <a href="">斜挎包</a>
+                            <a href="">单肩包</a>
+                            <a href="">手提包</a>
+                            <a href="">钱包</a>
+                            <a href="">旅行箱</a>
+                            <a href="">手拿包</a>
+                            <a href="">帆布包</a>
+                            <a href="">mini小包</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">流行</a></dt>
+                            <dd>
+                            <a href="" class="hot">链条包</a>
+                            <a href="">贝壳包</a>
+                            <a href="">水桶包</a>
+                            <a href="">方形包</a>
+                            <a href="">复古包</a>
+                            <a href="">卡通包</a>
+                            <a href="">铆钉包</a>
+                            <a href="">邮差包</a>
+                            <a href="">子母包</a>
+                            <a href="">印花包</a>
+                            <a href="">帆布包</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ifrtinjugvrtombzhezdambqhayde_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>                                 
+                <!-- 运动 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">运动</a>
+                        <a href="" class="hot">运动套装</a>
+                        <ins></ins>
+                        <a href="">运动鞋</a>
+                        <ins></ins>
+                        <a href="" class="hot">卫衣</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -360px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">秋季新品</a></dt>
+                            <dd>
+                            <a href="">运动套装</a>
+                            <a href="">运动鞋</a>
+                            <a href="" class="hot">时尚卫衣</a>
+                            <a href="">跑鞋</a>
+                            <a href="">棒球衫</a>
+                            <a href="">帆布鞋</a>
+                            <a href="">情侣款</a>
+                            <a href="">双肩包</a>
+                            <a href="">烧烤用品</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">火爆热卖</a> </dt>
+                          <dd>
+                            <a href="" class="hot">时尚卫衣</a>
+                            <a href="" class="hot">人气套装</a>
+                            <a href="">网红款</a>
+                            <a href="">小白鞋</a>
+                            <a href="">跑鞋</a>
+                            <a href="">瑜伽必备</a>
+                            <a href="">运动内衣</a>
+                            <a href="">明星同款</a>
+                            <a href="">休闲板鞋</a>
+                            <a href="">运动裤</a>
+                            <a href="">体重秤</a>
+                            <a href="">拉力器</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">品牌专柜</a></dt>
+                            <dd>
+                            <a href="" class="hot">耐克</a>
+                            <a href="">阿迪达斯</a>
+                            <a href="">匡威</a>
+                            <a href="">特步</a>
+                            <a href="">鸿星尔克</a>
+                            <a href="" class="hot">361度</a>
+                            <a href="">非常大牌</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/p2-160830-upload_34k4e3530l0i5i30gj2l7b85a1ble_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>    
+                <!-- 美妆 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">美妆</a>
+                        <a href="" class="hot">补水保湿</a>
+                        <ins></ins>
+                        <a href="">面膜</a>
+                        <ins></ins>
+                        <a href="">BB霜</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -399px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">必备护肤</a></dt>
+                            <dd>
+                            <a href="" class="hot">补水保湿</a>
+                            <a href="" class="hot">美白淡斑</a>
+                            <a href="">洁面</a>
+                            <a href="" class="hot">人气面膜</a>
+                            <a href="">水乳</a>
+                            <a href="">眼唇护理</a>
+                            <a href="">T区护理</a>
+                            <a href="">护唇膏</a>
+                            <a href="">精华</a>
+                            <a href="" class="hot">护肤套装</a>
+                            <a href="">防晒</a>
+                            <a href="">男士护肤</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">潮流彩妆</a> </dt>
+                          <dd>
+                            <a href="">妆前隔离</a>
+                            <a href="" class="hot">BB霜</a>
+                            <a href="">遮瑕粉底</a>
+                            <a href="">腮红</a>
+                            <a href="">阴影高光</a>
+                            <a href="">定妆散粉</a>
+                            <a href="" class="hot">口红</a>
+                            <a href="">眼妆</a>
+                            <a href="">眉笔</a>
+                            <a href="">美妆工具</a>
+                            <a href="">彩妆套装</a>
+                            <a href="">香水</a>
+                            <a href="">指甲油</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">个人护理</a></dt>
+                            <dd>
+                            <a href="">脱毛膏</a>
+                            <a href="" class="hot">洗发护发</a>
+                            <a href="">染烫造型</a>
+                            <a href="">沐浴乳</a>
+                            <a href="">身体乳</a>
+                            <a href="">全身呵护</a>
+                            <a href="" class="hot">手足护理</a>
+                            <a href="" class="hot">美胸瘦身</a>
+                            <a href="">口腔护理</a>
+                            <a href="">卫生巾</a>
+                            <a href="">避孕套</a>
+                            <a href="">情趣用具</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ie4toyjqgzswiojthezdambqgqyde_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>                
+                <!-- 配饰 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">配饰</a>
+                        <a href="" class="hot">早秋围巾</a>
+                        <ins></ins>
+                        <a href="">项链</a>
+                        <ins></ins>
+                        <a href="">男士配饰</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -438px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">夏季新品</a></dt>
+                            <dd>
+                            <a href="" class="hot">手表</a>
+                            <a href="">锁骨链</a>
+                            <a href="">帽子</a>
+                            <a href="">发饰</a>
+                            <a href="">戒指</a>
+                            <a href="">眼镜框</a>
+                            <a href="" class="hot">耳饰</a>
+                            <a href="">棒球帽</a>
+                            <a href="" class="hot">墨镜</a>
+                            <a href="" class="hot">手链</a>
+                            <a href="">耳钉</a>
+                            <a href="">男士手表</a>
+                            <a href="">皮带</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">潮流速递</a> </dt>
+                          <dd>
+                            <a href="" class="hot">几何项链</a>
+                            <a href="">情侣手表</a>
+                            <a href="">银饰</a>
+                            <a href="">发箍</a>
+                            <a href="">吊坠</a>
+                            <a href="">组合戒指</a>
+                            <a href="">手镯</a>
+                            <a href="">颈链</a>
+                            <a href="" class="hot">渔夫帽</a>
+                            <a href="">脚链</a>
+                            <a href="">男士墨镜</a>
+                            <a href="">香水</a>
+                            <a href="">指甲油</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">特色配饰</a></dt>
+                            <dd>
+                            <a href="" class="hot">轻奢珠宝</a>
+                            <a href="">腰带</a>
+                            <a href="">胸针</a>
+                            <a href="">假领子</a>
+                            <a href="" class="hot">新娘配饰</a>
+                            <a href="">假发</a>
+                            <a href="">草帽</a>
+                            <a href="" class="hot">纹身贴</a>
+                            <a href="">钥匙扣</a>
+                            <a href="" class="hot">早秋围巾</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ifrgimdcgaywcmzshazdambqmeyde_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>  
+                <!-- 家居 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">家居</a>
+                        <a href="">新品</a>
+                        <ins></ins>
+                        <a href="" class="hot">四件套</a>
+                        <ins></ins>
+                        <a href="">小家具</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -477px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">家纺布艺</a></dt>
+                            <dd>
+                            <a href="" class="hot">四件套</a>
+                            <a href="">被子</a>
+                            <a href="" class="hot">美翻了窗帘</a>
+                            <a href="" class="hot">枕头</a>
+                            <a href="" class="hot">沙发垫</a>
+                            <a href="" class="hot">抱枕</a>
+                            <a href="">毛毯</a>
+                            <a href="">床垫</a>
+                            <a href="">桌布</a>
+                            <a href="">地毯地垫</a>
+                            <a href="">坐垫</a>
+                            <a href="">被套</a>
+                            <a href="">床单</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">家具家饰</a> </dt>
+                          <dd>
+                            <a href="" class="hot">墙贴</a>
+                            <a href="" class="hot">衣柜</a>
+                            <a href="">鞋架</a>
+                            <a href="">绿植</a>
+                            <a href="" class="hot">花架</a>
+                            <a href="" class="hot">桌子</a>
+                            <a href="">装饰画</a>
+                            <a href="">香薰</a>
+                            <a href="" class="hot">沙发</a>
+                            <a href="">摆件</a>
+                            <a href="">DIY</a>
+                            <a href="">置物架</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">美味厨房</a></dt>
+                            <dd>
+                            <a href="">锅具</a>
+                            <a href="" class="hot">碗</a>
+                            <a href="">叉勺筷</a>
+                            <a href="">调味罐</a>
+                            <a href="">饭盒</a>
+                            <a href="">烘焙器具</a>
+                            <a href="">保鲜罐</a>
+                            <a href="">围裙</a>
+                            <a href="" class="hot">厨房小电器</a>
+                            <a href="">厨房清洁</a>
+                            <a href="">橡胶手套</a>
+                            <a href="">隔热手套</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ieztkobzmrswinlcgmzdambqgyyde_250x130.png"></a>
+            
+                            </dl>
+                        </div>
+                </li> 
+                <!-- 母婴 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">母婴</a>
+                        <a href="" class="hot">秋季热销</a>
+                        <ins></ins>
+                        <a href="">童装</a>
+                        <ins></ins>
+                        <a href="">孕妇装</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -516px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">童装</a></dt>
+                            <dd>
+                            <a href="" class="hot">秋季热销</a>
+                            <a href="">女童</a>
+                            <a href="">男童</a>
+                            <a href="">新生儿</a>
+                            <a href="">童鞋</a>
+                            <a href="" class="hot">运动鞋</a>
+                            <a href="">童裤</a>
+                            <a href="">连衣裙</a>
+                            <a href="">长袖T恤</a>
+                            <a href="">衬衫</a>
+                            <a href="">卫衣</a>
+                            <a href="" class="hot">婴儿礼盒</a>
+                            <a href="">家居服</a>
+                            <a href="">套装</a>
+                            <a href="">亲子装</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">辣妈</a> </dt>
+                          <dd>
+                            <a href="">孕妇装</a>
+                            <a href="" class="hot">孕妇裤</a>
+                            <a href="">连衣裙</a>
+                            <a href="">妈咪套装</a>
+                            <a href="" class="hot">打底裤</a>
+                            <a href="">产前产后</a>
+                            <a href="">家居服</a>
+                            <a href="">托腹裤</a>
+                            <a href="">束腹带</a>
+                            <a href="">哺乳内衣</a>
+                            <a href="">孕产洗护</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">玩具用品</a></dt>
+                            <dd>
+                            <a href="" class="hot">益智早教</a>
+                            <a href="">毛绒玩具</a>
+                            <a href="">电动遥控</a>
+                            <a href="" class="hot">童车</a>
+                            <a href="" class="hot">婴儿床品</a>
+                            <a href="">童车</a>
+                            <a href="">童包</a>
+                            <a href="">奶瓶</a>
+                            <a href="">洗护</a>
+                            <a href="">喂哺</a>
+                            <a href="">幼儿学步</a>
+                            <a href="" class="hot">安全出行</a>
+                            <a href="">纸尿裤</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_6a5j71jcih8bl4f4207b5ib14iih9_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>   
+                <!-- 零食 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">零食</a>
+                        <a href="">休闲食品</a>
+                        <ins></ins>
+                        <a href="" class="hot">进口美食</a>
+                        <ins></ins>
+                        <a href="" class="hot">肉食</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -555px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">休闲食品</a></dt>
+                            <dd>
+                            <a href="">巧克力</a>
+                            <a href="">饼干</a>
+                            <a href="">糕点</a>
+                            <a href="">糖果</a>
+                            <a href="">蜜饯</a>
+                            <a href="">坚果</a>
+                            <a href="">肉食</a>
+                            <a href="">膨化食品</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">进口美食</a> </dt>
+                          <dd>
+                            <a href="">日韩</a>
+                            <a href="">东南亚</a>
+                            <a href="">台湾</a>
+                            <a href="" class="hot">进口饼干</a>
+                            <a href="">进口糕点</a>
+                            <a href="">进口糖巧</a>
+                            <a href="">进口水饮</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">茶酒饮品</a></dt>
+                            <dd>
+                            <a href="">咖啡</a>
+                            <a href="" class="hot">花果茶</a>
+                            <a href="">果味茶饮</a>
+                            <a href="">冲饮</a>
+                            <a href="">饮料</a>
+                            <a href="">酒类</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ifrdsytfmrtgiyjthezdambqmeyde_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>  
+                <!-- 百货 -->
+                <li class="primary_nav_li">
+                    <div class="nav_wrap">
+                        <a href="" class="keyword">百货</a>
+                        <a href="" class="hot">新品</a>
+                        <ins></ins>
+                        <a href="">玻璃杯</a>
+                        <ins></ins>
+                        <a href="">晴雨伞</a>
+                    </div>
+                
+                    <!-- 右侧更多内容 -->
+                    <i class="nav_line_right"></i>
+                    
+                        <div class="nav_more" style=" top: -594px;">
+                          <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">生活小物</a></dt>
+                            <dd>
+                            <a href="" class="hot">晴雨伞</a>
+                            <a href="" class="hot">玻璃杯</a>
+                            <a href="">毛绒玩具</a>
+                            <a href="">口罩</a>
+                            <a href="">马克杯</a>
+                            <a href="">文具</a>
+                            <a href="" class="hot">迷你风扇</a>
+                            <a href="">厨房工具</a>
+                            <a href="">餐具</a>
+                            <a href="" class="hot">家务清洁</a>
+                            <a href="" class="hot">纸品洗液</a>
+                            <a href="" class="hot">心机小物</a>
+                            </dd>
+                          </dl>
+                           
+                           <dl class="nav_more_wrap">
+                           <dt>  <a href="" class="keyword">收纳控</a> </dt>
+                          <dd>
+                            <a href="" class="hot">首饰盒</a>
+                            <a href="">挂钩</a>
+                            <a href="">收纳箱</a>
+                            <a href="">鞋盒</a>
+                            <a href="">收纳袋</a>
+                            <a href="" class="hot">桌面收纳</a>
+                            <a href="">纸巾盒</a>
+                            <a href="">衣帽架</a>
+                            <a href="">防尘袋</a>
+                            <a href="">化妆品收纳</a>
+                            <a href="">脏衣篓</a>
+                            <a href="" class="hot">内衣收纳</a>
+                            <a href="">收纳盒</a>
+                            </dd>
+                           </dl>
+
+                           <dl class="nav_more_wrap">
+                            <dt><a href="" class="keyword">情趣生活</a></dt>
+                            <dd>
+                            <a href="" class="hot">情趣睡衣</a>
+                            <a href="">情趣内裤</a>
+                            <a href="">情趣文胸</a>
+                            <a href="">情趣丝袜</a>
+                            <a href="">情趣用具</a>
+                            <a href="" class="hot">避孕套</a>
+                            <a href="">调情香剂</a>
+                            </dd>
+                          </dl> 
+
+                            <dl class="nav_more_wrap_pic">
+                              <a href="" target="_blank"><img src="images/upload_ie2tondegu2wknlcgmzdambqhayde_250x130.jpg"></a>
+            
+                            </dl>
+                        </div>
+                </li>                                               
+            </ul>
+            <!-- 2.2右侧图片集 -->
+            <div class="primary_main">
+             
+                <div class="mslide_banners">
+                   <!--  <img src="fg_1916dcbkgb9e73jha8li52hki79he_715x530.jpg"> -->
+      <div class="banner_index">
+        <a href="javascript:void(0);" class="btn btnPre" id="banner_index_pre"></a>
+        <a href="javascript:void(0);" class="btn btnNext" id="banner_index_next"></a>
+          <ul class="banner_wrap" id="banner_index">
+            <li><a href="" target="_blank"><img src="images/1dv_8067gkcbkh1bkfgf035ccj0348h1c_715x530.jpg"/></a></li>
+            <li><a href="" target="_blank"><img src="images/upload_44g24b3c3h4cflbj0g1ge2120kfek_715x530.jpg"/></a></li>
+            <li><a href="" target="_blank"><img src="images/upload_0360jie4j9hgd275gbi01056dedga_715x530.jpg"/></a></li>
+            <li><a href="" target="_blank"><img src="images/upload_468bcl6a7bifg117bjl24h0gb48l8_715x530.jpg"/></a></li>
+            <li><a href="" target="_blank"><img src="images/zt_48lah51c82fea522hag2lf19k1454_715x530.jpg"/></a></li>
+          </ul>
+        <div class="indexBanner_num" id="index_numIco"></div>  
+      </div>
+      <script type="text/javascript">
+      var ShowPre1 = new ShowPre(
+        {box:"banner_index",
+        Pre:"banner_index_pre",
+        Next:"banner_index_next",
+        numIco:"index_numIco",
+        loop:1,
+        auto:1
+      });
+      </script>
+                </div>
+             
+                <ul class="sale_list">
+                    <li class="sale_li" style="border-bottom: 1px dashed #ddd;">
+                        <img src="images/fg_1h9b9bchfhebc10fkdh2h87g9a1be_180x220.jpg">
+                    </li>
+                    <li class="sale_li">
+                        <img src="images/9q_290kca0l3cheadkb5j7k534h4kg3g_180x220.jpg">
+                    </li>
+                </ul>
+            </div>
+        </div>    
+
+        <!-- 3.主页面之特卖  --> 
+        <div class="special_con">
+          <div class="sp_col1">
+            <a href="">
+              <div class="title"></div>
+              <div class="time_con">
+                <span class="timer-hh">00</span>
+                <span>:</span>
+                <span class="timer-mm">00</span>
+                <span>:</span>
+                <span class="timer-ss">00</span>
+              </div>
+              <img src="images/upload_4jegjejcl2hf13jkkf7470jfaed06_640x640.jpg_640x640.jpg">
+              <span class="price_con">
+                <b style="font-size: 14px;">19元</b>
+                <br>
+                <p style="font-size: 12px;">快抢价</p>
+              </span>
+            </a>
+          </div>
+          <div class="sp_col23">
+            <a href=""><img src="images/1o_20ih2f51ka1i9c1j8l031f006bjbi_335x300.jpg"></a>
+            <a href=""><img src="images/h6_8ejl3k032c69dgbjg0j98hhe8h8e9_240x300.png" ></a>
+            
+          </div>
+          <div class="sp_col4">
+            <a href=""><img src="images/ec_5252ac3d6h67162g8a6iklj9ddj11_360x145.jpg" ></a>
+            <a href=""><img src="images/p2-160920-upload_0gea60h2k7cdll41lg98b82ffg589_360x145.jpg" style="margin-top:10px;"></a>
+            
+          </div>
+        </div>
+        <!-- 4.主页面之专题 -->
+      	<div class="main_content">
+          <ul class="theme">
+            <!--  专题类型1 -->
+            <li class="theme_con">
+              <div class="title">
+                  <div class="bg_con"></div>
+                  <div class="ti_con"><img src="images/upload_ie4toztfmjqtmnjvg4zdambqgqyde_186x25.png"></div>
+                  <div class="bg_con"></div>
+              </div>
+              <div class="style1_con">
+                <div class="col1">
+                  <div class="img_con">
+                    <a href=""><img src="images/iz_8032h6e3e78ke0dlb27ba4jh4189f_170x170.png"></a>
+                    <a href=""><img src="images/iz_7k5i933jjgi2jkief8d7d4i5jfk9f_170x170.png"></a>
+                  </div>
+                  <ul class="text_con">
+                    <li><a href="">日系毛巾</a></li>
+                    <li><a href="">韩系毛巾</a></li>
+                    <li><a href="">进口卫生巾</a></li>
+                    <li><a href="">皇家御用浴盐</a></li>
+                    <li><a href="">原创系列</a></li>
+                    <li><a href="">百搭衬衫</a></li>
+                    <li><a href="">初秋尝鲜</a></li>
+                    <li><a href="">约会裙装</a></li>
+                    <li><a href="">凹凸有致半身裙</a></li>
+                  </ul>
+                </div>
+                <div class="col2">
+                  <ul>
+                    <li class="img_cont1">
+                      <a href="">
+                        <img src="images/iz_2lcjk0lbl8la70448hj0jg0l8gde5_305x330.jpg">
+                      </a>
+                    </li>
+                    <li class="img_cont1">
+                      <a href="">
+                        <img src="images/iz_5lc1cdg3j2hibl9ai99lg7c28k1fh_305x330.jpg">
+                      </a>
+                    </li>
+                    <li class="img_cont1">
+                      <a href="">
+                        <img src="images/iz_ifqtszjqgazdsmtfhezdambqgyyde_305x330.jpg">
+                      </a>
+                    </li>                    
+                  </ul>
+
+                  <ul>
+                    <li class="img_cont2">
+                      <a href="">
+                        <img src="images/iz_534f917b2b188cbd5cg7alfik7e8l_130x150.jpg">
+                        <span class="desc">
+                          <p>原创T恤</p>
+                          <p style="color:grey;">设计经典款</p>
+                        </span>                        
+                      </a>
+                    </li>
+                    <li class="img_cont2">
+                      <a href="">
+                        <img src="images/iz_39139028lib6baebe6dejcf9dc8k2_130x150.jpg">
+                        <span class="desc">
+                          <p>显瘦裙装</p>
+                          <p style="color:grey;">提臀约会神器</p>
+                        </span>                        
+                      </a>
+                    </li>
+                    <li class="img_cont2">
+                      <a href="">
+                        <img src="images/iz_3411jai2a565hd1ke2d52elc685jd_130x150.jpg">
+                        <span class="desc">
+                          <p>初秋爆款</p>
+                          <p style="color:grey;">早秋购新衣</p>
+                        </span>                        
+                      </a>
+                    </li>
+                  </ul>
+               
+                </div>
+
+              </div>
+            </li>
+            <!-- 专题类型2 -->
+            <li class="theme_con">
+              <div class="title">
+                  <div class="bg_con"></div>
+                  <div class="ti_con"><img src="images/upload_ie4gcmtfmeztanjxhazdambqgiyde_186x25.jpg"></div>
+                  <div class="bg_con"></div>
+              </div>
+              <div class="style2_con">
+                <div class="col1">
+                    <a href="" class="pic1">
+                      <img src="images/upload_5gd656ih79djeedifgc5c3agcfdda_183x213.png">
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/5u_ifrtczrxmu4tmmlbhezdambqhayde_111x60.jpg">
+                      <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/5u_ifrtomjwgnrdmmlbhezdambqhayde_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/5u_1a7lkhle31h8j9478b67idg00kal6_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/5u_ifrdkmjzgzrteylehezdambqmeyde_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/5u_74343i7idghf9f7gcj8g2a6ia58a9_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/p2-160912-upload_5dh615l8f6clf43c00kc0jed5lgk0_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/upload_1250if86j3ehg363371bgc984ij91_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/2ac_05d945jak7al29ha3li4gl4egjb5d_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+            
+                </div>
+                <div class="col2">
+                  <div class="long_pic">
+                    <a href="">
+                      <img src="images/p2-160922-upload_6g7ceh8b287f8e4ck1e6i5ce4h0da_305x500.png">
+                        <div class="grey"></div>
+                  </a>
+                  </div>
+                  <ul class="col_pic">
+       
+                      <li class="pic_item">
+                        <a href="" target="_blank">
+                          <img src="images/p2-160922-upload_6b75bj138j41jjl81h5b9kbil4f8g_175x170.jpg">
+                          <span>耐克直降300</span>
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                        <a href="" target="_blank">
+                          <img src="images/p2-160922-upload_1624c6h6f0jd35gbb0gdia3f6fl44_175x170.jpg">
+                          <span>匡威特惠</span>
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                        <a href="" target="_blank">
+                          <img src="images/upload_44e8h2gj062eghag1b9jb7l80c0j0_175x170.jpg">
+                          <span>adidas秋上新</span>
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                         <a href="" target="_blank">
+                          <img src="images/p2-160922-upload_1624c6h6f0jd35gbb0gdia3f6fl44_175x170.jpg">
+                          <span>乔丹低至89</span> 
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                         <a href="" target="_blank">
+                          <img src="images/p2-160922-upload_21lba0938fd71a5dfj6c4h6l5ak7h_175x170.jpg">
+                          <span>鸿星尔克满减</span> 
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                         <a href="" target="_blank">
+                          <img src="images/upload_0i0j15i9dcjachjikk86eid46kff2_175x170.jpg">
+                          <span>森茂运动59元起</span> 
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </li>
+            <!-- 专题类型2 -->
+            <li class="theme_con">
+              <div class="title">
+                  <div class="bg_con"></div>
+                  <div class="ti_con"><img src="images/upload_ifrwcolehaztanjxhazdambqhayde_186x25.jpg"></div>
+                  <div class="bg_con"></div>
+              </div>
+              <div class="style2_con">
+                <div class="col1">
+                    <a href="" class="pic1">
+                      <img src="images/1dq_289ckfh81jg68cg6fa5cg2l4agf12_183x213.jpg">
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/upload_23j9ilgb6h070abk092cb3lhik747_400x400.jpg" style="width:111px;height:60px;">
+                      <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/p2-160914-upload_54528kg618hd31hege2ag9ig3cl2a_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/upload_131c97c1ig49dg574i6c39g9hh5ck_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/upload_7h96ll4d38c2l855did680jlb99j3_110x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/p2-160922-upload_2jc5ad2lai4ga059cajc78e217l19_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/upload_6f7delaeflbka6jlld8l3adi21bhe_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/upload_71fe1f995j1e03a47dd8eai1ic2g3_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+                    <a href="" class="pic2">
+                      <img src="images/p2-160910-upload_4a29lci2ebelld71j5018cf66abkc_111x60.jpg">
+                        <div class="grey"></div>
+                    </a>
+            
+                </div>
+                <div class="col2">
+                  <div class="long_pic">
+                    <a href="">
+                      <img src="images/1dq_1hb7h4hig5fkikcglghch1c027i6g_305x500.jpg">
+                        <div class="grey"></div>
+                  </a>
+                  </div>
+                  <ul class="col_pic">
+       
+                      <li class="pic_item">
+                        <a href="" target="_blank">
+                          <img src="images/1dq_16e3b4d04ck34g1fb61d5llj47526_175x170.png">
+                          <span>衬衫</span>
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                        <a href="" target="_blank">
+                          <img src="images/1dq_465e427b3a9eh792c1b6a04l1ke1h_175x170.png">
+                          <span>针织衫</span>
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                        <a href="" target="_blank">
+                          <img src="images/1dq_08aik8fhh83dagi98b7139dlhi33g_175x170.png">
+                          <span>牛仔裤</span>
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                         <a href="" target="_blank">
+                          <img src="images/1dq_867eebd9k71a1472le87d79fkghlf_175x170.png">
+                          <span>连衣裙</span> 
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                         <a href="" target="_blank">
+                          <img src="images/1dq_132fe83d4gi1jb6gehc8ibcl6944e_175x170.png">
+                          <span>省心套装</span> 
+                        </a>
+                      </li>
+                      <li class="pic_item">
+                         <a href="" target="_blank">
+                          <img src="images/1dq_3f7fji54jhfl8629l21a9d7bbceha_175x170.png">
+                          <span>内衣</span> 
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </li>  
+            <!--  专题类型1 -->
+            <li class="theme_con">
+              <div class="title">
+                  <div class="bg_con"></div>
+                  <div class="ti_con"><img src="images/upload_ie4tcmjwmeztanjxhazdambqgqyde_186x25.jpg"></div>
+                  <div class="bg_con"></div>
+              </div>
+              <div class="style1_con">
+                <div class="col1">
+                  <div class="img_con">
+                    <a href=""><img src="images/7f_ifqwkzjtmrswmzrzhazdambqgyyde_170x170.png"></a>
+                    <a href=""><img src="images/7f_ifrgcnbtgbtgmzrzhazdambqmeyde_170x170.png"></a>
+                  </div>
+                  <ul class="text_con">
+                    <li><a href="">卫衣</a></li>
+                    <li><a href="">夹克</a></li>
+                    <li><a href="">衬衫</a></li>
+                    <li><a href="">休闲裤</a></li>
+                    <li><a href="">牛仔裤</a></li>
+                    <li><a href="">九分裤</a></li>
+                    <li><a href="">运动鞋</a></li>
+                    <li><a href="">休闲鞋</a></li>
+                    <li><a href="">套装</a></li>
+                  </ul>
+                </div>
+                <div class="col2">
+                  <ul>
+                    <li class="img_cont1">
+                      <a href="">
+                        <img src="images/1j3_56g58ijhehe1iih86b50db81jj5c6_305x330.jpg">
+                      </a>
+                    </li>
+                    <li class="img_cont1">
+                      <a href="">
+                        <img src="images/1j3_58jk141h4fg42cj601bc51da3h70g_305x330.jpg">
+                      </a>
+                    </li>
+                    <li class="img_cont1">
+                      <a href="">
+                        <img src="images/1j3_4ffhihc5dl1h36eikj3baii5b7c39_305x330.jpg">
+                      </a>
+                    </li>                    
+                  </ul>
+
+                  <ul>
+                    <li class="img_cont2">
+                      <a href="">
+                        <img src="images/oj_5jj54gg638l266dhfk56782cbdcdh_130x150.jpg">
+                        <span class="desc">
+                          <p>潮流上衣</p>
+                          <p style="color:grey;">秋款必备单品</p>
+                        </span>                        
+                      </a>
+                    </li>
+                    <li class="img_cont2">
+                      <a href="">
+                        <img src="images/oj_2h6c9if741kjh447la1102jhde832_130x150.jpg">
+                        <span class="desc">
+                          <p>腿长1米8</p>
+                          <p style="color:grey;">1折起疯狂购</p>
+                        </span>                        
+                      </a>
+                    </li>
+                    <li class="img_cont2">
+                      <a href="">
+                        <img src="images/oj_290140gbfi14k38bh6j84b3k0k6ih_130x150.jpg">
+                        <span class="desc">
+                          <p>休闲鞋履</p>
+                          <p style="color:grey;">直降100冰点价</p>
+                        </span>                        
+                      </a>
+                    </li>
+                  </ul>
+               
+                </div>
+
+              </div>
+            </li>             
+
+           
+          </ul>
+      	</div>
+    </div>
+
+    <!-- 页脚信息 -->
+    <div class="footer">
+        <div class="footer-wrap">
+         
+            <div class="footer1">
+                <img src="images/upload_ifrwinlcgfrdcyteg4zdambqhayde_152x38.png" alt="蘑菇街logo" >
+                <br>
+                <dl>
+                    <dd> <p>营业执照注册号：<a href="">330106000129004</a></p></dd>
+                    <dd> <p>增值电信业务经营许可证：<a href="">浙B2-20110349</a></p></dd>
+                    <dd> <p>网络文化经营许可证：<a href="">浙网文（2016）0349-219号</a></p></dd>
+                    <dd> <p><a href="">安全责任书</a></p></dd>
+                    <dd> <p><img src="images/upload_ifrgemjwgq3gemzthazdambqmeyde_20x20.png">
+                         <a href="">浙公网安备 33010602002329号</a></p></dd>
+                    <dd> <p>©2016 Mogujie.com 杭州卷瓜网络有限公司</p></dd>  
+                </dl>
+            </div>
+
+            <div class="footer2">
+            	<dl>
+            	    <dt><b>公司</b></dt>
+            	    <dd><a href="" target="_blank">关于我们</a></dd>
+                    <dd><a href="" target="_blank">招聘消息</a></dd>
+                    <dd><a href="" target="_blank">联系我们</a></dd>
+                </dl>  
+                <dl>
+                    <dt><b>消费者</b></dt>
+                    <dd><a href="" target="_blank">消费者服务</a></dd>
+                    <dd><a href="" target="_blank">意见反馈</a></dd>
+                    <dd><a href="" target="_blank">手机版下载</a></dd>
+                </dl>
+                <dl>
+                    <dt><b>商家</b></dt>
+                    <dd><a href="" target="_blank">商家入驻</a></dd>
+                    <dd><a href="" target="_blank">商家后台</a></dd>
+                    <dd><a href="" target="_blank">蘑菇商学院</a></dd> 
+                    <dd><a href="" target="_blank">商家社区</a></dd>  
+                </dl>
+                <dl class="link-safe">
+                    <dt><b>权威认证</b></dt>
+                    <dd> <a href="" class="pinganbank" target="_blank"></a>
+                    <a href="" class="safenet" target="_blank"></a></dd>
+                </dl>
+            </div>
+
+        </div>
+      
+
+
+        <div class="link">
+
+            <ul >
+                <li>友情链接：</li>
+                <li><a href="" target="_blank"> 蘑菇街游戏</a></li> 
+                <li><a href="" target="_blank"> 淘粉吧</a></li>
+                <li><a href="" target="_blank"> 穿衣搭配</a></li>
+                <li><a href="" target="_blank"> 蘑菇街男装</a></li>
+                <li><a href="" target="_blank"> 蘑菇街鞋子</a></li>
+                <li><a href="" target="_blank"> 蘑菇街包包</a></li>
+                <li><a href="" target="_blank"> QQ钱包</a></li>
+                <li><a href="" target="_blank"> 家具网</a></li>
+                <li><a href="" target="_blank"> 时尚品牌网</a></li>
+                <li><a href="" target="_blank"> 装修</a></li>
+                <li><a href="" target="_blank"> 蘑菇街母婴</a></li>
+                <li><a href="" target="_blank"> 衣联网</a></li>
+                <li><a href="" target="_blank"> 播视网视频</a></li>
+                <li><a href="" target="_blank"> 慧聪网</a></li>
+            </ul>
+        </div>
+    </div>
+     
+</body>
+</html>
